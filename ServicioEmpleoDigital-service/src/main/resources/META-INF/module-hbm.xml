@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servicioempleodigital.model.Candidato" />
+	<import class="servicioempleodigital.model.Empresa" />
+	<import class="servicioempleodigital.model.Oferta" />
+	<import class="servicioempleodigital.model.Pregunta" />
+	<import class="servicioempleodigital.model.Respondida" />
+	<import class="servicioempleodigital.model.Respuesta" />
+	<import class="servicioempleodigital.model.Resultado" />
+	<class name="servicioempleodigital.model.impl.CandidatoImpl" table="FOO_Candidato">
+		<id name="idCandidato" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="nif" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nombre" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="apellidos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fechaDeNacimiento" type="org.hibernate.type.TimestampType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="telefono" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="password_" name="password" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="provincia" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="ciudad" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servicioempleodigital.model.impl.EmpresaImpl" table="FOO_Empresa">
+		<id name="idEmpresa" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="cif" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="razonSocial" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="telefono" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="web" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="password_" name="password" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="provincia" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="ciudad" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="trabajadores" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="servicioempleodigital.model.impl.OfertaImpl" table="FOO_Oferta">
+		<id name="idOferta" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="titulo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descripcion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="provincia" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="ciudad" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="salario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fechaInicio" type="org.hibernate.type.TimestampType" />
+		<property name="fechaModificacion" type="org.hibernate.type.TimestampType" />
+		<property name="fechaFin" type="org.hibernate.type.TimestampType" />
+		<property name="plazas" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="candidatos" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="requisitosMinimos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="requisitosOpcionales" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="activa" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="idEmpresa" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="servicioempleodigital.model.impl.PreguntaImpl" table="FOO_Pregunta">
+		<id name="idPregunta" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="enunciado" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tipo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="idOferta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="servicioempleodigital.model.impl.RespondidaImpl" table="FOO_Respondida">
+		<composite-id class="servicioempleodigital.service.persistence.RespondidaPK" name="primaryKey">
+			<key-property name="idRespuesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="idCandidato" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="respuesta" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="respondida" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="servicioempleodigital.model.impl.RespuestaImpl" table="FOO_Respuesta">
+		<id name="idRespuesta" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="respuesta" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="valor" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="idPregunta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="servicioempleodigital.model.impl.ResultadoImpl" table="FOO_Resultado">
+		<composite-id class="servicioempleodigital.service.persistence.ResultadoPK" name="primaryKey">
+			<key-property name="idCandidato" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="idOferta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="puntuacion" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+</hibernate-mapping>

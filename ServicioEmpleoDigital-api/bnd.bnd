@@ -1,0 +1,9 @@
+Bundle-Name: ServicioEmpleoDigital-api
+Bundle-SymbolicName: servicioempleodigital.api
+Bundle-Version: 1.0.0-SNAPSHOT
+Export-Package:\
+	servicioempleodigital.exception,\
+	servicioempleodigital.model,\
+	servicioempleodigital.service,\
+	servicioempleodigital.service.persistence
+-includeresource: META-INF/service.xml=../ServicioEmpleoDigital-service/service.xml

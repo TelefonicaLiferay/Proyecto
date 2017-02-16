@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servicioempleodigital.model.Candidato">
+		<field name="idCandidato" type="long" />
+		<field name="nif" type="String" />
+		<field name="nombre" type="String" />
+		<field name="apellidos" type="String" />
+		<field name="fechaDeNacimiento" type="Date" />
+		<field name="email" type="String" />
+		<field name="telefono" type="String" />
+		<field name="password" type="String" />
+		<field name="provincia" type="int" />
+		<field name="ciudad" type="String" />
+	</model>
+	<model name="servicioempleodigital.model.Empresa">
+		<field name="idEmpresa" type="long" />
+		<field name="cif" type="String" />
+		<field name="razonSocial" type="String" />
+		<field name="telefono" type="String" />
+		<field name="email" type="String" />
+		<field name="web" type="String" />
+		<field name="password" type="String" />
+		<field name="provincia" type="int" />
+		<field name="ciudad" type="String" />
+		<field name="trabajadores" type="int" />
+	</model>
+	<model name="servicioempleodigital.model.Oferta">
+		<field name="idOferta" type="long" />
+		<field name="titulo" type="String" />
+		<field name="descripcion" type="String" />
+		<field name="provincia" type="int" />
+		<field name="ciudad" type="String" />
+		<field name="salario" type="String" />
+		<field name="fechaInicio" type="Date" />
+		<field name="fechaModificacion" type="Date" />
+		<field name="fechaFin" type="Date" />
+		<field name="plazas" type="int" />
+		<field name="candidatos" type="int" />
+		<field name="requisitosMinimos" type="String" />
+		<field name="requisitosOpcionales" type="String" />
+		<field name="activa" type="boolean" />
+		<field name="idEmpresa" type="long" />
+	</model>
+	<model name="servicioempleodigital.model.Pregunta">
+		<field name="idPregunta" type="long" />
+		<field name="enunciado" type="String" />
+		<field name="tipo" type="int" />
+		<field name="idOferta" type="long" />
+	</model>
+	<model name="servicioempleodigital.model.Respondida">
+		<field name="idRespuesta" type="long" />
+		<field name="idCandidato" type="long" />
+		<field name="respuesta" type="String" />
+		<field name="respondida" type="boolean" />
+	</model>
+	<model name="servicioempleodigital.model.Respuesta">
+		<field name="idRespuesta" type="long" />
+		<field name="respuesta" type="String" />
+		<field name="valor" type="double" />
+		<field name="idPregunta" type="long" />
+	</model>
+	<model name="servicioempleodigital.model.Resultado">
+		<field name="puntuacion" type="double" />
+		<field name="idCandidato" type="long" />
+		<field name="idOferta" type="long" />
+	</model>
+</model-hints>

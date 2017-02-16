@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="servicioempleodigital.service.impl.CandidatoLocalServiceImpl" id="servicioempleodigital.service.CandidatoLocalService" />
+	<bean class="servicioempleodigital.service.impl.CandidatoServiceImpl" id="servicioempleodigital.service.CandidatoService" />
+	<bean class="servicioempleodigital.service.persistence.impl.CandidatoPersistenceImpl" id="servicioempleodigital.service.persistence.CandidatoPersistence" parent="basePersistence" />
+	<bean class="servicioempleodigital.service.impl.EmpresaLocalServiceImpl" id="servicioempleodigital.service.EmpresaLocalService" />
+	<bean class="servicioempleodigital.service.impl.EmpresaServiceImpl" id="servicioempleodigital.service.EmpresaService" />
+	<bean class="servicioempleodigital.service.persistence.impl.EmpresaPersistenceImpl" id="servicioempleodigital.service.persistence.EmpresaPersistence" parent="basePersistence" />
+	<bean class="servicioempleodigital.service.impl.OfertaLocalServiceImpl" id="servicioempleodigital.service.OfertaLocalService" />
+	<bean class="servicioempleodigital.service.impl.OfertaServiceImpl" id="servicioempleodigital.service.OfertaService" />
+	<bean class="servicioempleodigital.service.persistence.impl.OfertaPersistenceImpl" id="servicioempleodigital.service.persistence.OfertaPersistence" parent="basePersistence" />
+	<bean class="servicioempleodigital.service.impl.PreguntaLocalServiceImpl" id="servicioempleodigital.service.PreguntaLocalService" />
+	<bean class="servicioempleodigital.service.impl.PreguntaServiceImpl" id="servicioempleodigital.service.PreguntaService" />
+	<bean class="servicioempleodigital.service.persistence.impl.PreguntaPersistenceImpl" id="servicioempleodigital.service.persistence.PreguntaPersistence" parent="basePersistence" />
+	<bean class="servicioempleodigital.service.impl.RespondidaLocalServiceImpl" id="servicioempleodigital.service.RespondidaLocalService" />
+	<bean class="servicioempleodigital.service.impl.RespondidaServiceImpl" id="servicioempleodigital.service.RespondidaService" />
+	<bean class="servicioempleodigital.service.persistence.impl.RespondidaPersistenceImpl" id="servicioempleodigital.service.persistence.RespondidaPersistence" parent="basePersistence" />
+	<bean class="servicioempleodigital.service.impl.RespuestaLocalServiceImpl" id="servicioempleodigital.service.RespuestaLocalService" />
+	<bean class="servicioempleodigital.service.impl.RespuestaServiceImpl" id="servicioempleodigital.service.RespuestaService" />
+	<bean class="servicioempleodigital.service.persistence.impl.RespuestaPersistenceImpl" id="servicioempleodigital.service.persistence.RespuestaPersistence" parent="basePersistence" />
+	<bean class="servicioempleodigital.service.impl.ResultadoLocalServiceImpl" id="servicioempleodigital.service.ResultadoLocalService" />
+	<bean class="servicioempleodigital.service.impl.ResultadoServiceImpl" id="servicioempleodigital.service.ResultadoService" />
+	<bean class="servicioempleodigital.service.persistence.impl.ResultadoPersistenceImpl" id="servicioempleodigital.service.persistence.ResultadoPersistence" parent="basePersistence" />
+</beans>
